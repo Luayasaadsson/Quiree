@@ -1,0 +1,17 @@
+<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1270" height="252" viewBox="0 0 1270 252" transform="rotate(180)">
+  <defs>
+    <!-- Gradient for the first path -->
+    <linearGradient id="gradientPath1" x1="-3772.95452" y1="1559.43262" x2="-3830.83619" y2="1454.17582" gradientTransform="translate(-3120.55487 1570.28951) rotate(180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2ada21"/>
+      <stop offset="1" stop-color="#2bdfbe"/>
+    </linearGradient>
+    <!-- Gradient for the second path -->
+    <linearGradient id="gradientPath2" x1="-4415.2298" y1="2550.7732" x2="-4520.0729" y2="2360.11787" gradientTransform="translate(-3490.27368 2718.16451) rotate(180)">
+      <stop offset="0" stop-color="#2ada21"/>
+      <stop offset="1" stop-color="#2bdfbe"/>
+    </linearGradient>
+  </defs>
+  <path d="M902.64355,223.00244a9.95161,9.95161,0,0,1-5.54687-1.686l-185.124-123.689A10.00018,10.00018,0,0,1,723.084,80.99756l185.124,123.689a10.001,10.001,0,0,1-5.56446,18.31592ZM-594.40771,449.502,637.31738,88.01709a10,10,0,1,0-5.63281-19.19043L-600.03955,430.311a10.00015,10.00015,0,0,0-6.7793,12.41162,10.00422,10.00422,0,0,0,9.59082,7.18652A10.02073,10.02073,0,0,0-594.40771,449.502Z" fill="#fef9f2"/>
+  <path d="M681.34034,123.53511a60.04981,60.04981,0,1,0-60.04969-60.04984A60.04988,60.04988,0,0,0,681.34034,123.53511Zm0-89.48211a29.43231,29.43231,0,1,1-29.43219,29.43227A29.43246,29.43246,0,0,1,681.34034,34.053Z" fill-rule="evenodd" fill="url(#gradientPath1)"/>
+  <path d="M977.37741,371.4893a108.77031,108.77031,0,1,0-108.7701-108.77038A108.77045,108.77045,0,0,0,977.37741,371.4893Zm0-162.08207a53.31177,53.31177,0,1,1-53.31155,53.31169A53.312,53.312,0,0,1,977.37741,209.40723Z" fill-rule="evenodd" fill="url(#gradientPath2)"/>
+</svg>

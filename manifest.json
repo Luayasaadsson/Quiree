@@ -1,0 +1,22 @@
+{
+  "name": "Quire - Website",
+  "short_name": "Quire by Team Enklare",
+  "description": "Chas Academy project for a notepad website by Team Enklare",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#333333",
+  "icons": [
+    {
+      "src": "/images/quirelogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/quirelogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

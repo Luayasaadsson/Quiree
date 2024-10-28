@@ -1,0 +1,10 @@
+<svg id="hypernotes" xmlns="http://www.w3.org/2000/svg" width="596" height="632" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 596 632" transform="rotate(180)">
+  <defs>
+    <!-- Linear Gradient -->
+    <linearGradient id="newGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2ada21" />
+      <stop offset="100%" style="stop-color:#2bdfbe" />
+    </linearGradient>
+  </defs>
+  <path d="M152.37552,0H0V114.96749c4.80245-.54477,9.68216-.83443,14.63027-.83443,70.93454,0,128.43854,57.50541,128.43854,128.44224S85.56481,371.01767,14.63027,371.01767v.00004c-4.9481,0-9.82782-.28971-14.63027-.83439v150.92779c4.84524,.25043,9.72272,.37876,14.63027,.37876,154.03582,0,278.90653-124.87431,278.90653-278.91457,0-103.94021-56.85634-194.59708-141.16127-242.5753Z" fill="url(#newGradient)" fill-rule="evenodd"/>
+</svg>

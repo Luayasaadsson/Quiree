@@ -1,0 +1,457 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #414549;
+  height: 100vh;
+  max-width: 100vw;
+  text-align: center;
+  font-weight: 1.6rem;
+  display: grid;
+  grid-template-rows: 38.9rem 1fr;
+  padding-top: -8rem;
+  background-color: rgba(216, 223, 230, 0.635);
+  background-image: url("/images/footer-hypernotes.svg");
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+aside {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: wrap;
+  font-size: 1.3rem;
+  gap: 5rem;
+  height: 22rem;
+  overflow: auto;
+}
+
+aside::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+  /*   width: 3px; */
+  border: 1px solid #777;
+  background: rgba(216, 223, 230, 0.635);
+  border-radius: 3px;
+}
+
+/* aside::-webkit-scrollbar-track {
+  --webkit-box-shadow: inset 0 0 6px rgba(#333, 0.3);
+}
+*/
+aside::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(0deg, #2ada21, #2bdfbe);
+  outline: 1px solid #777;
+  border-radius: 3px;
+}
+
+aside#favs {
+  width: 45%;
+}
+
+header {
+  /*  background-color: rgba(216, 223, 230, 0.635); */
+  margin-top: 0.8rem;
+}
+
+.contatainer {
+  width: 120rem;
+  margin: 0 auto;
+}
+
+.contatainer2 {
+  width: 40rem;
+}
+
+.container3 {
+  width: 57.14%;
+}
+
+a {
+  text-decoration: none;
+  color: #343a40;
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+}
+
+.grid--2-cols {
+  grid-template-columns: 3fr 4fr;
+}
+
+.grid--7-cols {
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+  /*   grid-gap: 3.1rem;
+  padding: 0 2rem; */
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 2rem;
+}
+
+/* BUTTONS */
+
+.btn,
+.btn:link,
+.btn:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  display: inline-block;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  font-size: 1.6rem;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.display_flex {
+  display: flex;
+}
+
+.btn_save_note {
+  text-transform: none;
+  font-size: 1.4rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-self: flex-end;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid grey;
+  height: 2.4rem;
+}
+
+.save_copy_container {
+  display: flex;
+  align-items: center;
+}
+
+.btn_print {
+  color: white;
+  /*   padding: 0.5rem 0.5rem; */
+  cursor: pointer;
+  transition: background-color 0.6s;
+  background-color: transparent;
+  border: none;
+  /*   height: 2.4rem;
+  width: 2.4rem; */
+  display: flex;
+  align-items: flex-end;
+}
+
+.printer {
+  width: 2.4rem;
+  margin-right: 1rem;
+  margin-top: 2rem;
+}
+
+.btn_save_note:hover,
+.btn_print:hover {
+  transform: translateY(-0.5px);
+}
+
+@media print {
+  .btn-container,
+  .nav-modal,
+  .btn_save_note,
+  .btn_save_note,
+  .btn_print img,
+  .btn_close-modal {
+    display: none;
+  }
+}
+
+.btn_save_note:hover {
+  transform: translateY(-0.5px);
+}
+
+.btn_save_note:active {
+  transform: translateY(0.5px);
+}
+
+.btn_save_note span {
+  display: flex;
+  align-items: center;
+}
+
+.btn_delete_note {
+  background-color: black;
+  color: white;
+}
+
+.btn_delete_all {
+  color: white;
+  background-color: rgb(245, 114, 114);
+  padding: 0.3rem 0.5rem;
+  font-size: 1.2rem;
+  border: 1.5px solid black;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.btn_left_modal {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.btn_close-modal {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.close-modal {
+  font-size: 2.2rem;
+  margin-top: -0.5rem;
+  margin-right: 0.5rem;
+}
+
+.window-btn {
+  font-size: 2rem;
+  margin-top: -0.5rem;
+}
+
+.window-close-btn {
+  display: none;
+  font-size: 2rem;
+  width: inherit;
+  margin-top: -0.5rem;
+}
+
+.window-btn .icon:not(.hidden) {
+  display: none;
+}
+
+.window-btn .icon.hidden {
+  display: initial;
+}
+
+.window-btn .window-close-btn:not(.hidden) {
+  display: initial;
+}
+
+.window-close-btn,
+.close-modal:hover,
+.window-btn:hover {
+  background-color: #f1f2f3;
+}
+
+.btn_edit {
+  height: 3rem;
+  width: 8rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  /*   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem; */
+}
+.btn_edit:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+.btn_edit:active {
+  color: white;
+  background-color: black;
+}
+
+.text:hover .btn_edit {
+  opacity: 1;
+}
+
+.btn_delete {
+  height: 3rem;
+  width: 8rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* .templates_create_btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  height: 64px;
+  width: 64px;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14);
+  transition-duration: 0.25s;
+
+  position: relative;
+
+  font-weight: normal;
+  font-size: 6rem;
+  padding: 12px;
+
+  background-color: #fff;
+  z-index: 2;
+}
+
+.plus {
+  background-image: linear-gradient(0deg, #2ada21, #2bdfbe);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.templates_create_btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  /*  padding: 1rem; */
+  width: 64px;
+  height: 64px;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  /* font-size: 1.6rem; */
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  color: #333;
+  /*  margin-bottom: 4rem; */
+  animation: moveInRight 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+}
+.templates_create_btn::after {
+  background-color: #fff;
+}
+.templates_create_btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(black, 0.2);
+}
+.templates_create_btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.templates_create_btn:active,
+.templates_create_btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+}
+.templates_create_btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+.color {
+  background-image: linear-gradient(0deg, #2ada21, #2bdfbe);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.templates_create_btn span {
+  background-image: linear-gradient(0deg, #2ada21, #2bdfbe);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 6rem;
+  overflow: visible;
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Hover effekt över FET/KURSIV/RUBRIK */
+
+.word,
+.word_box {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.word::before,
+.word_box::before {
+  content: attr(data-word);
+  position: absolute;
+  background-color: #0a09097c;
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  top: -30%;
+  left: 50%;
+  transform: translate(-50%, 150%);
+}
+.word_box::before {
+  transform: translate(-50%, 150%);
+}
+
+.word:hover::before,
+.word_box:hover::before {
+  opacity: 1;
+  visibility: visible;
+}

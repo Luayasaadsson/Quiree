@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Team Enklare - Notepad website" />
+    <meta property="og:title" content="Quire - Team Enklare" />
+    <meta
+      property="og:description"
+      content="Quire - Free localstorage notepad website!"
+    />
+    <meta property="og:image" content="https://i.ibb.co/VV33g6p/logo.png" />
+    <meta property="og:url" content="https://enklare-quire.netlify.app/" />
+    <meta name="theme-color" content="#333333" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="images/quirelogo.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <script src="./js/modal.js" defer></script>
+    <script src="./js/script.js" defer></script>
+    <title>Quire Team Enklare</title>
+  </head>
+  <body>
+    <!-- Modal-fönstret för skrivare  / osynligt tills klick-->
+    <main class="main_content">
+      <section class="modal hidden">
+        <div class="btn-container">
+          <div class="btn_left_modal">
+            <button class="btn_close-modal">
+              <ion-icon name="close-outline" class="close-modal"></ion-icon>
+            </button>
+            <button class="btn_close-modal">
+              <ion-icon name="square-outline" class="window-btn"></ion-icon>
+            </button>
+          </div>
+          <div class="word_box" data-word="Byt namn">
+            <input type="text" id="note-title" placeholder="Namn på dokument" />
+          </div>
+          <div class="save_copy_container">
+            <button class="btn_print" onclick="window.print();">
+              <img
+                src="images/printer-svgrepo-com (1).svg"
+                alt="Bild på skrivare"
+                title="Skriv ut"
+                class="printer"
+              />
+            </button>
+            <a class="btn_save_note" id="add-btn"><span>Spara</span></a>
+          </div>
+        </div>
+        <nav class="nav-modal">
+          <ul class="nav-ul">
+            <li>
+              <div class="word_box" data-word="Välj bakgrundsfärg">
+                <input type="color" id="bakgrund" value="#ffffff" style="cursor: pointer;" />
+              </div>
+            </li>
+            <li>
+              <button
+                class="formatButton"
+                onclick="toggleHeading('h1')"
+                id="h1Button"
+              >
+                Rubrik 1
+              </button>
+            </li>
+            <li>
+              <button
+                class="formatButton"
+                onclick="toggleHeading('h2')"
+                id="h2Button"
+              >
+                Rubrik 2
+              </button>
+            </li>
+            <li>
+              <button
+                class="formatButton"
+                onclick="toggleHeading('h3')"
+                id="h3Button"
+              >
+                Rubrik 3
+              </button>
+            </li>
+            <li value="4">
+              <div class="word_box" data-word="Välj textfärg">
+                <input type="color" id="textFarg" />
+              </div>
+            </li>
+            <li>
+              <div class="emphasisButtons">
+                <button
+                  class="formatButton"
+                  onclick="toggleFormat('bold')"
+                  id="boldButton"
+                >
+                  B
+                </button>
+                <button
+                  class="formatButton"
+                  onclick="toggleFormat('italic')"
+                  id="italicButton"
+                >
+                  I
+                </button>
+                <button
+                  class="formatButton"
+                  onclick="toggleFormat('underline')"
+                  id="underlineButton"
+                >
+                  U
+                </button>
+                <!-- Corrected button IDs -->
+                <button
+                  class="formatButton"
+                  onclick="toggleList('insertUnorderedList')"
+                  id="unorderedListButton"
+                >
+                  UL
+                </button>
+                <button
+                  class="formatButton"
+                  onclick="toggleList('insertOrderedList')"
+                  id="orderedListButton"
+                >
+                  OL
+                </button>
+
+                <button
+                  class="formatButton"
+                  onclick="disableHeaders()"
+                  id="disableHeadersButton"
+                >
+                  Ingen rubrik
+                </button>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div
+          id="noteText"
+          contenteditable="true"
+          oninput="handleInput()"
+          onmouseup="saveSelection()"
+          onkeydown="saveSelection()"
+        ></div>
+      </section>
+      <div class="overlay hidden"></div>
+
+      <!-- Knapp för öppna modal för papperskorg -->
+      <button class="show-modal_trash">
+        <img
+          class="trash-img"
+          src="../images/trash.png"
+          alt="bild på papperskorg"
+        />
+      </button>
+      <!-- Innehållet i papperskorg modalen -->
+      <section class="modal_trash hidden-trash">
+        <button class="close-modal_trash">&times;</button>
+        <h1 class="trash_name">Papperskorg</h1>
+
+        <div class="trash_container" id="trash">
+          <!-- Här kallas html in via javascript -->
+        </div>
+        <div class="trash_buttons">
+          <button class="btn btn_delete_all">Töm papperskorg</button>
+        </div>
+      </section>
+      <div class="overlay_trash hidden_trash"></div>
+
+      <!-- Knapp för låsta modalen -->
+      <button class="show-modal_secret">
+        <img
+          class="trash-img"
+          src="./images/lock-svgrepo-com.svg"
+          alt="bild på papperskorg"
+        />
+      </button>
+      <!-- Innehållet i låsta modalen -->
+      <section class="modal_secret hidden-secret">
+        <button class="close-modal_secret">&times;</button>
+        <h1 class="secret_name">Hemliga dokument</h1>
+
+        <div class="secret_container" id="secret">
+          <!-- Här kallas html in via javascript -->
+        </div>
+      </section>
+      <div class="overlay_secret hidden_secret"></div>
+
+      <!-- Här startar navbaren för hemsidan -->
+      <nav class="nav_bar">
+        <li class="nav_bar_list">
+          <a href="index.html"
+            ><h1><span class="color">Q</span>uire</h1></a
+          >
+        </li>
+        <li class="nav_bar_list">
+          <div class="search_container">
+            <input id="searchInput"" placeholder="Sök" />
+            <button class="nav_bar_button">
+              <svg
+                focusable="false"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.49,19l-5.73-5.73C15.53,12.2,16,10.91,16,9.5C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5C3,13.09,5.91,16,9.5,16 c1.41,0,2.7-0.47,3.77-1.24L19,20.49L20.49,19z M5,9.5C5,7.01,7.01,5,9.5,5S14,7.01,14,9.5S11.99,14,9.5,14S5,11.99,5,9.5z"
+                ></path>
+                <path d="M0,0h24v24H0V0z" fill="none"></path>
+              </svg>
+            </button>
+          </div>
+        </li>
+
+        <select id="väljMusik">
+          <option value="">Musik:</option>
+        </select>
+        <audio id="audioPlayer" controls></audio>
+
+        <div id="toggle">
+          <i class="indicator"></i>
+        </div>
+      </nav>
+
+      <!-- Här börjar kommer första delen under navbar -->
+      <header class="contatainer display_flex">
+        <h2 class="header_headertext contatainer2 header_doc">
+          Skapa ett nytt dokument
+        </h2>
+        <h2 class="header_headertext">Favoriter</h2>
+      </header>
+      <!-- Här kommer "Favoriter" knapp för öppna modal för skriva nytt dokument -->
+      <main class="contatainer display_flex">
+        <section class="header_templates_flex">
+          <a href="#" class="contatainer2"
+            ><div class="templates templates_white show-modal">
+              <div class="templates_new">+</div>
+            </div></a
+          >
+
+          <!-- Här här är ett sträck mellan skapa dokument och favoriter-->
+          <div class="timeline">
+            <div class="line"></div>
+          </div>
+
+          <h3 class="template_name">Tomt dokument</h3>
+          <p class="template_theme">Enkel</p>
+        </section>
+        <!-- Här kommer "Favoriter" -->
+        <aside id="favs" class="contatainer3">
+          <!-- Här kallas html in via javascript -->
+        </aside>
+      </main>
+    </main>
+    <!-- Här nörjar "Tidigare dokument" -->
+    <section class="contatainer">
+      <div class="section_header">
+        <h2 class="header_headertext">Tidigare dokument</h2>
+        <button class="templates_create_btn show-modal">
+          <span class="plus">+</span>
+        </button>
+      </div>
+      <div class="section" id="notes">
+        <!-- Här kallas html in via javascript -->
+      </div>
+    </section>
+  </body>
+  <!-- Här kommer två script för hämta svg iconer -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script src="./js/emphasis.js"></script>
+</html>

@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(216, 223, 230, 0.635);
+  background-image: url("/images/bg-hypernotes-left.svg");
+  background-size: cover;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: moveInBottom 1s ease-out;
+}
+main {
+  padding-bottom: 3.4rem;
+}
+h1 {
+  text-align: center;
+  font-size: 8.6rem;
+  margin-top: 4rem;
+}
+.h2 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+h2 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+p {
+  font-size: 1.6rem;
+}
+.list {
+  text-align: center;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+.text-content {
+  width: 40rem;
+}
+.text-image {
+  margin-bottom: 6.4rem;
+}
+.text-image img {
+  justify-self: center;
+  padding: 1.3rem;
+  /*   border-radius: 30% 70% 16% 84% / 69% 30% 70% 31%;
+  background-color: #F3F3F3;
+  overflow: visible; */
+}
+.move-right {
+  justify-self: flex-end;
+  animation: moveInLeft 1s ease-out;
+}
+.move-left {
+  animation: moveInRight 1s ease-out;
+}
+.center-all {
+  margin: 0 auto;
+  width: 80%;
+}
+/* Animationer */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.templates_create_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem;
+  width: 84px;
+  height: 84px;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  color: #333;
+  margin-bottom: 4rem;
+  animation: moveInBottom 0.5s ease-out 1.25s;
+  animation-fill-mode: backwards;
+}
+.templates_create_btn::after {
+  background-color: #fff;
+}
+.templates_create_btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(black, 0.2);
+}
+.templates_create_btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.templates_create_btn:active,
+.templates_create_btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+}
+.templates_create_btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+.color {
+  background-image: linear-gradient(0deg, #2ada21, #2bdfbe);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.templates_create_btn span {
+  background-image: linear-gradient(0deg, #2ada21, #2bdfbe);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 6rem;
+}
+
+@media (max-width: 70em) {
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(216, 223, 230, 0.635);
+    background-image: url("/images/bg-mobile-start.svg");
+    background-size: cover;
+    background-position: right;
+  }
+}
+
+@media (max-width: 54em) {
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(216, 223, 230, 0.635);
+    background-image: url("/images/bg-mobile-start.svg");
+    background-size: cover;
+    background-position: right;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: initial;
+  }
+  .text-content.move-right {
+    order: -1;
+  }
+  .text-content.move-left {
+    order: -1;
+  }
+  p {
+    padding: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 34em) {
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(216, 223, 230, 0.635);
+    background-image: url("/images/bg-mobile-start.svg");
+    background-size: cover;
+    background-position: right;
+  }
+}
